@@ -50,19 +50,20 @@ void setup() {
 }
 
 void loop() {
-  button0.update();
-  int randNumber = random(1, 5);
-  if (button0.fallingEdge()) {
-    if(randNumber <= 1 && randNumber >= 0) {
-      sound0.play(AudioSampleSnare);
-    } else if(randNumber <= 2 && randNumber >= 1) {
-      sound1.play(AudioSampleTomtom);
-    } else if(randNumber <= 3 && randNumber >= 2) {
-      sound3.play(AudioSampleKick);
-    } else if(randNumber <= 4 && randNumber >= 3) {
-      sound4.play(AudioSampleGong);
-    } else if(randNumber <= 4 && randNumber >= 3) {
-      sound5.play(AudioSampleCashregister);
+  if(touchRead(15) > thresHold) {
+    int randNumber = random(1, 5);
+    if (button0.fallingEdge()) {
+      if(randNumber <= 1 && randNumber >= 0) {
+        sound0.play(AudioSampleSnare);
+      } else if(randNumber <= 2 && randNumber >= 1) {
+        sound1.play(AudioSampleTomtom);
+      } else if(randNumber <= 3 && randNumber >= 2) {
+        sound3.play(AudioSampleKick);
+      } else if(randNumber <= 4 && randNumber >= 3) {
+        sound4.play(AudioSampleGong);
+      } else if(randNumber <= 4 && randNumber >= 3) {
+        sound5.play(AudioSampleCashregister);
+      }
     }
   }
 }
